@@ -41,7 +41,7 @@ const Dashboard = () => {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const { data, mutate, error, isLoading } = useSWR(
-    `/api/posts?username=${session?.data?.user.name}`,
+    `/api/posts?email=${session?.data?.user.email}`,
     fetcher
   );
 
@@ -64,20 +64,19 @@ const Dashboard = () => {
       await fetch("/api/posts", {
         method: "POST",
         body: JSON.stringify({
-          title,
-          desc,
-          img,
-          content,
-          username: session.data.user.name,
+          email: session.data.user.email,
+          title: title,
+          desc: desc,
+          image: img,
+          content: content,
         }),
-      });
+      })
       mutate();
-      e.target.reset()
+      // e.target.reset()
     } catch (err) {
       console.log(err);
     }
   };
-
   const handleDelete = async (id) => {
     try {
       await fetch(`/api/posts/${id}`, {
@@ -96,7 +95,7 @@ const Dashboard = () => {
           {isLoading
             ? "loading"
             : data?.map((post) => (
-                <div className={styles.post} key={post._id}>
+                <div className={styles.post} key={post._id} id={post._id}>
                   <div className={styles.imgContainer}>
                     <Image src={post.img} alt="" width={200} height={100} />
                   </div>
@@ -114,7 +113,7 @@ const Dashboard = () => {
           <h1 className={styles.header}>Add New Post</h1>
           <input type="text" placeholder="Title" className={styles.input} />
           <input type="text" placeholder="Desc" className={styles.input} />
-          {/* <input type="text" placeholder="Add Image Url" className={styles.input} /> */}
+          <input type="text" placeholder="Add Image Url" className={styles.input} />
           <textarea
             placeholder="Content"
             className={styles.textArea}

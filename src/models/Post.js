@@ -2,10 +2,9 @@ import mongoose from "mongoose";
 const {Schema} = mongoose
 
 const postSchema = new Schema({
-    username:{
+    email:{
         type: String,
-        unqiue: true,
-        required: true
+        required: true,
     },
     title:{
         type: String,
