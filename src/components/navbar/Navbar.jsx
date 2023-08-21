@@ -41,15 +41,15 @@ const Navbar = () => {
     return (
         <div className={styles.container}>
             <Link href="/" className={styles.logo}>Elmansy</Link>
-            <ModeToggle />
             <div className={styles.links} >
+                <ModeToggle />
                 {
                     links.map(link => (
                         <Link key={link.id} href={link.url} className={styles.link}>{link.title}</Link>
                     ))
                 }
                 {session.status === "authenticated" &&
-                    <button className={styles.logout} onClick={signOut()}>Logout</button>
+                    <button className={styles.logout} onClick={() => signOut()}>Logout</button>
                 }
             </div>
         </div>

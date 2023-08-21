@@ -18,10 +18,11 @@ const Login = ({ url }) => {
   }, [params]);
 
   if (session.status === "loading") {
-    return <p>Loading...</p>;
+    return <span>Loading...</span>;
   }
 
   if (session.status === "authenticated") {
+    console.log("authenticated");
     router?.push("/dashboard");
   }
 
@@ -30,6 +31,7 @@ const Login = ({ url }) => {
     const email = e.target[0].value;
     const password = e.target[1].value;
 
+    e.preventDefault();
     signIn("credentials", {
       email,
       password,

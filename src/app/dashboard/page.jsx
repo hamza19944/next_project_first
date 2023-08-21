@@ -111,17 +111,17 @@ const Dashboard = () => {
               ))}
         </div>
         <form className={styles.new} onSubmit={handleSubmit}>
-          <h1>Add New Post</h1>
+          <h1 className={styles.header}>Add New Post</h1>
           <input type="text" placeholder="Title" className={styles.input} />
           <input type="text" placeholder="Desc" className={styles.input} />
-          <input type="text" placeholder="Image" className={styles.input} />
+          {/* <input type="text" placeholder="Add Image Url" className={styles.input} /> */}
           <textarea
             placeholder="Content"
             className={styles.textArea}
             cols="30"
             rows="10"
           ></textarea>
-          <button className={styles.button}>Send</button>
+          <button className={styles.button}>Add</button>
         </form>
       </div>
     );
