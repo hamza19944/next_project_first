@@ -66,12 +66,8 @@ const Login = ({ url }) => {
         className={styles.button + " " + styles.google}
       >
         Login with Google
-      </button> */}
-      <span className={styles.or}>- OR -</span>
-      <Link className={styles.link} href="/dashboard/register">
-        Create new account
-      </Link>
-      {/* <button
+      </button>
+      <button
         onClick={() => {
           signIn("github");
         }}
@@ -79,6 +75,10 @@ const Login = ({ url }) => {
       >
         Login with Github
       </button> */}
+      <span className={styles.or}>- OR -</span>
+      <Link className={styles.link} href="/dashboard/register">
+        Create new account
+      </Link>
     </div>
   );
 };

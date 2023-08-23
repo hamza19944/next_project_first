@@ -95,17 +95,21 @@ const Dashboard = () => {
           {isLoading
             ? "loading"
             : data?.map((post) => (
-                <div className={styles.post} key={post._id} id={post._id}>
+                <div className={styles.post} key={post._id}>
                   <div className={styles.imgContainer}>
-                    <Image src={post.img} alt="" width={200} height={100} />
+                    <Image src={post.img} alt="" width={200} height={150} />
                   </div>
-                  <h2 className={styles.postTitle}>{post.title}</h2>
-                  <span
-                    className={styles.delete}
-                    onClick={() => handleDelete(post._id)}
-                  >
-                    X
-                  </span>
+                  <div className={styles.postContent}>
+                    <h2 className={styles.postTitle}>{post.title}</h2>
+                    <p className={styles.desc}>{post.desc}</p>
+                    <p className={styles.content}>{post.content.length < 100 ? post.content : post.content.slice(0, 170)+"..."}</p>
+                  </div>
+                    <span
+                      className={styles.delete}
+                      onClick={() => handleDelete(post._id)}
+                    >
+                      X
+                    </span>
                 </div>
               ))}
         </div>
@@ -113,7 +117,8 @@ const Dashboard = () => {
           <h1 className={styles.header}>Add New Post</h1>
           <input type="text" placeholder="Title" className={styles.input} />
           <input type="text" placeholder="Desc" className={styles.input} />
-          <input type="text" placeholder="Add Image Url" className={styles.input} />
+          <input type="text" placeholder="Add Image Url" className=
+          {styles.input} />
           <textarea
             placeholder="Content"
             className={styles.textArea}

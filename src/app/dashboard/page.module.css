@@ -50,3 +50,53 @@
 .button:hover{
     background-color: #6ee7ab;
 }
+/* styling the post */
+.posts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 50px 0;
+}
+.post{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 150px;
+}
+.imgContainer{
+    flex: 1;
+}
+.postContent{
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+    padding: 0 10px;
+}
+.postTitle{
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: .08rem;
+}
+.desc{
+    margin-bottom: 10px;
+    opacity: 80%;
+    font-size: 14px;
+}
+.content{
+    text-align: justify;
+}
+.delete{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    font-weight: bold;
+}
+.delete:hover{
+    color: #c57373;
+}
