@@ -6,6 +6,7 @@ async function getData() {
     const res = await fetch("https://" + process.env.VERCEL_URL + "/api/posts", {
         cache: "no-store",
     });
+    
     if(!res.ok){
         throw new Error("Faild to fetch data");
     }

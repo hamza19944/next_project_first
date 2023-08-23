@@ -41,7 +41,7 @@ const Dashboard = () => {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const { data, mutate, error, isLoading } = useSWR(
-    `/api/posts?email=${session?.data?.user.email}`,
+    `https://${process.env.VERCEL_URL}/api/posts?email=${session?.data?.user.email}`,
     fetcher
   );
 
@@ -61,7 +61,7 @@ const Dashboard = () => {
     const content = e.target[3].value;
 
     try {
-      await fetch("/api/posts", {
+      await fetch("https://" + process.env.VERCEL_URL + "/api/posts", {
         method: "POST",
         body: JSON.stringify({
           email: session.data.user.email,
@@ -79,7 +79,7 @@ const Dashboard = () => {
   };
   const handleDelete = async (id) => {
     try {
-      await fetch(`/api/posts/${id}`, {
+      await fetch("https://" + process.env.VERCEL_URL +`/api/posts/${id}`, {
         method: "DELETE",
       });
       mutate();

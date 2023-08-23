@@ -47,7 +47,7 @@ const handler = NextAuth({
     }),
   ],
   pages: {
-    error: "/dashboard/login",
+    error: "https://"+ process.env.VERCEL_URL +"/dashboard/login",
   },
 
 });
