@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from "next/image";
 
 async function getData() {
-    const res = await fetch("https://" + process.env.VERCEL_URL + "/api/posts", {
+    const res = await fetch("https://" + process.env.NEXT_PUBLIC_VERCEL_URL + "/api/posts", {
         cache: "no-store",
     });
     
@@ -19,7 +19,7 @@ const Blog = async () => {
     return (
         <div className={styles.container}>
             {data.map((item) => (
-                <Link href={"https://" + process.env.VERCEL_URL + `/blog/${item._id}`} className={styles.linkContainer} key={item._id}>
+                <Link href={"https://" + process.env.NEXT_PUBLIC_VERCEL_URL + `/blog/${item._id}`} className={styles.linkContainer} key={item._id}>
                     <div className={styles.imageContainer}>
                         <Image 
                             src={item.image}
