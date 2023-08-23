@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from "next/image";
 
 async function getData() {
-    const res = await fetch("https" + process.env.VERCEL_URL + "/api/posts", {
+    const res = await fetch("https://" + process.env.VERCEL_URL + "/api/posts", {
         cache: "no-store",
     });
     if(!res.ok){
