@@ -19,7 +19,7 @@ const Blog = async () => {
     return (
         <div className={styles.container}>
             {data.map((item) => (
-                <Link href={`/blog/${item._id}`} className={styles.linkContainer} key={item._id}>
+                <Link href={"https://" + process.env.VERCEL_URL + `/blog/${item._id}`} className={styles.linkContainer} key={item._id}>
                     <div className={styles.imageContainer}>
                         <Image 
                             src={item.image}
